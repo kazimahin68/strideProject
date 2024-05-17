@@ -1,0 +1,21 @@
+function show (name, age){
+    console.log("Hello", name, age)
+}
+
+const firstFunction = function (name, age, callback){
+    console.log("Hello from the first function");
+    setTimeout(() => {
+        callback(name, age)
+    }, 3000)
+    
+}
+
+
+firstFunction("Rakib", 34, show)
+
+
+//Indexing
+
+const nums = [1, 2, 3 ,4 ,5, 6]
+
+const indexing = nums.map((items, index) => console.log(items, "Index: " , index))
