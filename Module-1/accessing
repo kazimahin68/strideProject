@@ -1,0 +1,39 @@
+const user = {
+    name: "Rakib",
+    contact: {
+        phone: "+8801733947991",
+        email: "rakib2834@gmail.com"
+    },
+    pet: {
+        name: "Picku",
+        info: {
+            color: "Black & White",
+            weight: "45kg"
+        }
+    },
+    familyMember: [
+        {name: "X", age: 56},
+        {name: "Y", age: 87}
+    ]
+}
+
+
+// Email
+
+const email = user.contact.email
+
+const {contact: {email: email1}} = user;
+
+// console.log(email, email1)
+
+
+const petColor = user.pet.info.color;
+const {pet : {info : {color}}} = user;
+
+// console.log(petColor, color);
+
+const familyMember = user.familyMember[0].name;
+
+const {familyMember : [{name, age}, member2 ]} = user
+
+// console.log(name, age, member2)

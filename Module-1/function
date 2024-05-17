@@ -1,0 +1,35 @@
+//Normal Function
+//Arrow Function
+
+function add(num1, num2){
+    return num1 + num2
+}
+
+// const result = add(5, 6)
+// console.log(result)
+
+
+//Arrow
+
+const addNumbers = (num1, num2) => {
+    return num1 + num2
+}
+
+// const result2 = addNumbers(5, 7)
+// console.log(result2)
+
+
+// This Binding
+
+let user = {
+    age: 45,
+    getAge: function(){
+        console.log("Normal Fn:", this.age)
+    },
+    getAgeDetails: () => {
+        console.log("Arrow Fn:", this.age)
+    }
+}
+
+const result1 = user.getAge()
+const result2 = user.getAgeDetails()
