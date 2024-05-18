@@ -1,0 +1,42 @@
+//Promise
+
+const myPromise = new Promise((resolve, reject) => {
+    const num = 6;
+
+    if (num === 5){
+        resolve("Success")
+    }else{
+        reject("Error")
+    }
+})
+
+myPromise.then(res => console.log(res))
+.catch(err => console.log(err))
+
+
+// Two more promise
+const myPromise2 = new Promise((resolve, reject) => {
+    const num = 5;
+
+    if (num === 5){
+        resolve("Success 2")
+    } else{
+        reject("Error 2")
+    }
+});
+const myPromise3 = new Promise((resolve, reject) => {
+    const num = 5;
+
+    if (num === 5){
+        resolve("Success 3")
+    } else{
+        reject("Error 3")
+    }
+})
+
+// myPromise3.then(res => console.log(res)).catch(err => console.log(err))
+// Call 2 promise at once
+Promise
+.all([myPromise2, myPromise3])
+.then(res => console.log(res))
+.catch(err => console.log(err))
