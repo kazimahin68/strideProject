@@ -1,0 +1,14 @@
+//Create a reference memory
+
+function sayHello(){
+    let name= "Rakib";
+
+    function inner(){
+        console.log("Hello " + name)
+    }
+    return inner;
+}
+
+const xyz = sayHello();
+
+xyz();
