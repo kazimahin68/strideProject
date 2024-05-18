@@ -34,6 +34,6 @@ const {pet : {info : {color}}} = user;
 
 const familyMember = user.familyMember[0].name;
 
-const {familyMember : [{name, age}, member2 ]} = user
+const {familyMember : [{name: name1, age}, member2 ]} = user
 
 // console.log(name, age, member2)

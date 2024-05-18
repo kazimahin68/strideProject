@@ -1,0 +1,23 @@
+//HOF: Higher Order Function: accept or return a Function
+
+// Accept
+function abc(fnc){
+	fnc()
+}
+
+abc(
+	function xyz(){
+		console.log("hello")
+	}
+)
+
+
+// Return
+function a(){
+	return function(){
+		console.log("Hello from 2nd function")
+	};
+}
+
+const result = a();
+result();
