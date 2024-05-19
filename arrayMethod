@@ -4,29 +4,26 @@
 
 const numbers = [10, 20, 30, 40, 50, 60];
 
-const numbers1 = numbers.forEach((item) =>item)
+const numbers1 = numbers.forEach((item) => item);
 // console.log(numbers1)
-
 
 // map
 
-const numbers2 = numbers.map(items => items)
+const numbers2 = numbers.map((items) => items);
 
 // console.log("Map:", numbers2)
 
-
 // Find method
 
-const findNumber = numbers.find(item => item > 10)
+const findNumber = numbers.find((item) => item > 10);
 // console.log(findNumber)
-
 
 // Filter Method
 
-const filterNum = numbers.filter(items => items > 20);
+const filterNum = numbers.filter((items) => items > 20);
 // console.log(filterNum)
 
 // Reducer
 
 const total = numbers.reduce((previous, current) => previous + current, 0);
-console.log(total)
+console.log(total);
