@@ -1,13 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleLogin from "../components/auth/GoogleLogin";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { UserLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    UserLogin(email, password).then(() => {
+      form.reset();
+      navigate(from, { replace: true });
+    });
   };
 
   return (
@@ -21,6 +32,7 @@ const Login = () => {
             </label>
             <input
               type="email"
+              name="email"
               id="email"
               className="w-full px-3 py-2 border rounded"
               required
@@ -32,6 +44,7 @@ const Login = () => {
             </label>
             <input
               type="password"
+              name="password"
               id="password"
               className="w-full px-3 py-2 border rounded"
               required
@@ -57,7 +70,7 @@ const Login = () => {
           <hr />
           <div className="mt-2">
             <p>
-              Do not have any account ? Please 
+              Do not have any account ? Please
               <Link to="/register">
                 <span className="text-green-500 font-bold"> Register</span>
               </Link>

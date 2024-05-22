@@ -1,13 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../components/auth/GoogleLogin";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
+    createUser(email, password).then((result) => {
+      // const registeredUser = result.user;
+      form.reset();
+      navigate("/");
+      console.log(result);
+    });
   };
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -20,6 +31,7 @@ const Register = () => {
             </label>
             <input
               type="email"
+              name="email"
               id="email"
               className="w-full px-3 py-2 border rounded"
               required
@@ -31,6 +43,7 @@ const Register = () => {
             </label>
             <input
               type="password"
+              name="password"
               id="password"
               className="w-full px-3 py-2 border rounded"
               required
@@ -55,7 +68,12 @@ const Register = () => {
           </div>
           <hr />
           <div className="mt-2">
-            <p>Already have an account ? Please <Link to ="/login"><span className="text-green-500 font-bold">Login Here...</span></Link></p>
+            <p>
+              Already have an account ? Please{" "}
+              <Link to="/login">
+                <span className="text-green-500 font-bold">Login Here...</span>
+              </Link>
+            </p>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard";
 import Register from "../pages/Register";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "about",
-            element: <About></About>
+            element: <PrivateRoute><About></About></PrivateRoute>
         },
         {
             path: "login",
