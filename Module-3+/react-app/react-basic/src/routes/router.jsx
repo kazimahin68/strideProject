@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import ErrorPage from "../pages/ErrorPage";
 import DashboardLayout from "../layout/DashboardLayout";
 import Dashboard from "../pages/Dashboard";
+import Register from "../pages/Register";
 
 
 
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
         {
             path: "login",
             element: <Login></Login>
+        },
+        {
+            path: "register",
+            element: <Register></Register>
         }
       ]
     },

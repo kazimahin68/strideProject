@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GoogleLogin from "../components/auth/GoogleLogin";
 
 const Login = () => {
@@ -12,10 +13,7 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-sm">
-        <form
-          onSubmit={handleSubmit}
-          
-        >
+        <form onSubmit={handleSubmit}>
           <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-700">
@@ -46,10 +44,24 @@ const Login = () => {
             Login
           </button>
         </form>
-        <div className="flex items-center gap-3">
-          <p className="font-bold text-xl mt-2">Login with :</p>
-          <div>
-            <GoogleLogin />
+        <hr className="mt-4" />
+        <p className="text-center font-bold text-xl">OR</p>
+        <hr />
+        <div>
+          <div className="flex items-center gap-3">
+            <p className="font-bold mt-2">Sign Up with :</p>
+            <div>
+              <GoogleLogin />
+            </div>
+          </div>
+          <hr />
+          <div className="mt-2">
+            <p>
+              Do not have any account ? Please 
+              <Link to="/register">
+                <span className="text-green-500 font-bold"> Register</span>
+              </Link>
+            </p>
           </div>
         </div>
       </div>
